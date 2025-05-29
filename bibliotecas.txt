@@ -1,0 +1,7 @@
+drizzle-kit
+drizzle-orm
+zod
+shadcdn ui
+neon para postgre
+eslint-plugin-simple-import-sort
+better-auth
