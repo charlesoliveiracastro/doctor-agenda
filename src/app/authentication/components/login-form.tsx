@@ -58,6 +58,7 @@ const LoginForm = () => {
       {
         onSuccess: () => {
           router.push('/dashboard');
+          //window.location.href = '/dashboard';
         },
         onError: () => {
           toast.error('E-mail ou senha inválidos');
