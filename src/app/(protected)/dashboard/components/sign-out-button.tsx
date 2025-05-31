@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
-import { authClient } from '@/db/auth-client';
+import { authClient } from '@/lib/auth-client';
 
 type SignOutButtonProps = {
   children: React.ReactNode;

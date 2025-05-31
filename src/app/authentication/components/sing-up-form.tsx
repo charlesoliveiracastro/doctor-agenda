@@ -25,7 +25,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { authClient } from '@/db/auth-client';
+import { authClient } from '@/lib/auth-client';
 
 const registerSchema = z.object({
   name: z
