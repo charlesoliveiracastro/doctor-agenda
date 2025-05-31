@@ -1,7 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Loader2 } from 'lucide-react';
+import { CableIcon, Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -49,7 +49,7 @@ const LoginForm = () => {
   });
 
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof loginSchema>) {
+  const onSubmit = async (values: z.infer<typeof loginSchema>) => {
     await authClient.signIn.email(
       {
         email: values.email,
@@ -65,7 +65,14 @@ const LoginForm = () => {
         },
       },
     );
-  }
+  };
+
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: 'google',
+      callbackURL: '/dashboard',
+    });
+  };
 
   return (
     <Card>
@@ -110,17 +117,28 @@ const LoginForm = () => {
             />
           </CardContent>
           <CardFooter>
-            <Button
-              type='submit'
-              className='mt-4 w-full'
-              disabled={form.formState.isSubmitting}
-            >
-              {form.formState.isSubmitting ? (
-                <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-              ) : (
-                'Entrar'
-              )}
-            </Button>
+            <div className='w-full'>
+              <Button
+                type='submit'
+                className='mt-4 w-full'
+                disabled={form.formState.isSubmitting}
+              >
+                {form.formState.isSubmitting ? (
+                  <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                ) : (
+                  'Entrar'
+                )}
+              </Button>
+              <Button
+                variant='outline'
+                className='mt-2 w-full'
+                onClick={handleGoogleSignIn}
+                type='button'
+              >
+                <CableIcon className='mr-2 h-4 w-4' />
+                Entrar com Google
+              </Button>
+            </div>
           </CardFooter>
         </form>
       </Form>
