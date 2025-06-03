@@ -27,7 +27,7 @@ export const auth = betterAuth({
           clinic: true,
         },
       });
-      // TODO: Ao adaptar para o usuário ter múltiplas clínicas, deve-se mudar esse códigoAdd commentMore actions
+      // TODO: Ao adaptar para o usuário ter múltiplas clínicas, deve-se mudar esse código
       const clinic = clinics?.[0];
       return {
         user: {

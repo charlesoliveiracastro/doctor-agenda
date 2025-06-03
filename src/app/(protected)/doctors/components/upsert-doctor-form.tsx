@@ -113,7 +113,6 @@ const UpsertDoctorForm = ({ doctor, onSuccess }: UpsertDoctorFormProps) => {
     <DialogContent>
       <DialogHeader>
         <DialogTitle>{doctor ? doctor.name : 'Adicionar médico'}</DialogTitle>
-        Add commentMore actions
         <DialogDescription>
           {doctor
             ? 'Edite as informações desse médico.'
