@@ -124,6 +124,7 @@ export const appointmentsTable = pgTable('appointments', {
   patientId: uuid('patient_id')
     .notNull()
     .references(() => patientsTable.id, { onDelete: 'cascade' }),
+  appointmentPriceInCents: integer('appointment_price_in_cents').notNull(),
   doctorId: uuid('doctor_id')
     .notNull()
     .references(() => doctorsTable.id, { onDelete: 'cascade' }),
